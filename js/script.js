@@ -19,3 +19,14 @@ function showData(dataArray) {
 }
 
 // Escribe el código necesario para realizar el fetch al archivo con los datos y mostrar los estudiantes con la función showData
+
+fetch (DATA_URL) // Hace una solicitud para obtener datos de una URL
+
+
+.then((response) => response.json()) //Verifica si la respuesta fue exitosa.Si todo está bien, convierte la respuesta a un objeto JavaScript usando response json
+.then(data => { 
+  showData(data.students);  // Recibe los datos convertidos del archivo JSON. Llama a la función showData para mostrar a los estudiantes en la página.
+})
+.catch(error => {  // Si algo falla (en la solicitud o al procesar los datos), muestra un mensaje de error en la consola
+  console.error('Algo no salió bien', error);
+});
